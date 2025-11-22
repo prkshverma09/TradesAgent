@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 import os
@@ -88,7 +89,7 @@ async def entrypoint(ctx: JobContext):
         llm=openai.LLM(model="gpt-4o"),
         tts=openai.TTS(),
         chat_ctx=initial_ctx,
-        tools=[save_reservation_details],
+        fnc_ctx=llm.FunctionContext(),
         instructions=(
             f"You are a professional plumber's assistant calling {CALL_CONTEXT.get('shop_name', 'a shop')} on behalf of a plumber. "
             f"Your goal is to find out if they have {CALL_CONTEXT.get('item_name')} in stock. "
@@ -100,9 +101,15 @@ async def entrypoint(ctx: JobContext):
         ),
     )
 
+    agent.fnc_ctx.register(save_reservation_details)
+
     agent.start(ctx.room, participant)
 
+    logger.info("Agent started, waiting for 1 second before greeting...")
+    await asyncio.sleep(1)
+    logger.info("Attempting to say greeting...")
     await agent.say("Hello, I'm calling to check stock for a plumbing item. Do you have a moment?", allow_interruptions=True)
+    logger.info("Greeting sent.")
 
 
 if __name__ == "__main__":
