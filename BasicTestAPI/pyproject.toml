@@ -1,0 +1,12 @@
+[project]
+name = "basictestapi"
+version = "0.1.0"
+description = "LiveKit Agent API - Part Procurement Test Endpoint"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.5",
+    "uvicorn[standard]>=0.32.1",
+    "pydantic>=2.10.3",
+    "python-dotenv>=1.0.0",
+    "valyu>=2.2.6",
+]

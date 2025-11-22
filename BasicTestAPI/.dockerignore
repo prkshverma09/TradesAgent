@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Output (will be recreated in container)
+output/
+
+# Node.js testing folder
+testing/
+node_modules/
+
+# Logs
+*.log
+
+# Fly.io
+fly.toml
+.dockerignore
+
+# Other
+README.md
+.claude/
