@@ -83,6 +83,15 @@ The response flows back through the system:
 - **TypeScript Microservice** - ElevenLabs agent controller
 - **ElevenLabs Agent** - Natural language phone conversation with shops
 - **Valyu** - Parts supplier database/locator service
+- **Fly.io** - Cloud deployment platform for the FastAPI backend
+
+## Deployment
+
+The **FastAPI backend is deployed on Fly.io**, making it accessible from anywhere. This cloud deployment ensures:
+- **Global Accessibility**: LiveKit agents can connect to the backend from any location
+- **High Availability**: Reliable uptime for tradesman calls at any time
+- **Scalability**: Can handle multiple concurrent procurement requests
+- **Low Latency**: Fast response times for real-time voice conversations
 
 ## Current Status
 
